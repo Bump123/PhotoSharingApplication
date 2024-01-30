@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PhotoSharingApplication.Models.Photo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photoFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageMimeType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.photoFile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imageMimeType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.photoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.photoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.photoId })
+        </td>
+    </tr>
+}
+
+</table>
